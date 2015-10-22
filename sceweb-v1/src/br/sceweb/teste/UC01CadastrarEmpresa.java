@@ -60,6 +60,29 @@ public class UC01CadastrarEmpresa {
 		}
 	}
 	/**
+	 * obj - verificar o comportamento do sistema no cadastro com cnpj invalido
+	 */
+	@Test
+	public void CT04UC01A3Cadastra_empresa_cnpj_invalido() {
+		Empresa empresa2 = new Empresa();
+		try {
+			empresa2.setCnpj("11111111111111");
+			fail("deveria disparar uma exception");
+		} catch (Exception e) {
+			assertEquals("CNPJ inválido!",e.getMessage());
+		}
+	}
+	@Test
+	public void CT05UC01A3Cadastra_empresa_cnpj_invalido() {
+		Empresa empresa2 = new Empresa();
+		try {
+			empresa2.setCnpj("22222222222222");
+			fail("deveria disparar uma exception");
+		} catch (Exception e) {
+			assertEquals("CNPJ inválido!",e.getMessage());
+		}
+	}
+	/**
 	 * obj - verificar o comportamento do sistema no cadastro de uma empresa com dados invalidos
 	 */
 	@Test
